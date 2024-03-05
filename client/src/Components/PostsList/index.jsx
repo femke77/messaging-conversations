@@ -19,6 +19,7 @@ import '../PostsList/post.css';
 
 const PostsList = () => {
   const userId = Auth.getProfile().data._id
+  console.log(userId);
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [postsData, setPostsData] = useState([]);
   const { data, loading, refetch } = useQuery(QUERY_POSTS, { fetchPolicy: "cache-and-network" });
@@ -27,6 +28,7 @@ const PostsList = () => {
   useEffect(() => {
     if (data && data.getAllPosts) {
       setPostsData(data.getAllPosts);
+      console.log(data.getAllPosts);
     }
   }, [data]);
 

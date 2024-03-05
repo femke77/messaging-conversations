@@ -66,7 +66,7 @@ module.exports = {
                 );
         }, // Done
         getAllPosts: async () => {
-            return await Post.find({})
+           const posts = await Post.find({})
                 .populate('userId')
                 .populate(
                     {
@@ -77,6 +77,8 @@ module.exports = {
                         }
                     }
                 ); // Working
+                console.log(posts)
+                return posts
         }, // Done
         getPost: async (_, args) => {
             return await Post.findById(args.postId)

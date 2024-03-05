@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_MESSAGES } from "../../utils/queries.js";
 import Auth from "../../utils/auth.js";
-
+import MessageForm from '../MessageForm'
 
 
 const Messages = () => {
@@ -52,6 +52,7 @@ const Messages = () => {
 
   return (
     <div>
+      <MessageForm/>
       <h2>{username[0].toUpperCase() + username.substring(1)}, here are your conversations:</h2>
       <br/>
       {Object.entries(conversations).map(([conversationKey, messages]) => {
